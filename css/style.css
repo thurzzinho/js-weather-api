@@ -151,7 +151,7 @@
   }
   
   /* Celulares */
-  @media (max-width: 480px)
+  @media (max-width: 480px){
     .container {
       width: 90%;
       padding: 1.2rem;
@@ -178,4 +178,4 @@
       border-bottom: 1.5px solid #fff;
       margin: 0.4rem 0;
       padding: 0.4rem 0;
-    }
+    }}
