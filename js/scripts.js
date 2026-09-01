@@ -23,3 +23,46 @@ const loader = document.querySelector("#loader");
 //Sugestões de cidades
 const suggestionContainer = document.querySelector("#suggestions");
 const suggestionButtons = document.querySelectorAll("#suggestions button");
+
+// Animação do Loader
+const toggleLoader = () => {
+  loader.classList.toggle("hide");
+};
+
+// Função para obter os dados do clima de acordo com a API
+const getWeatherData = async (city) => {
+  toggleLoader();
+
+  const apiWeatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}&lang=pt_br`;
+
+  const res = await fetch(apiWeatherURL);
+  const data = await res.json();
+
+  toggleLoader();
+
+  return data;
+};
+
+// Função para exibir a mensagem de erro
+const showErrorMessage = () => {
+  errorMessageContainer.classList.remove("hide");
+};
+
+// Função para esconder as informações quando a busca for feita
+const hideInformation = () => {
+  errorMessageContainer.classList.add("hide");
+  weatherContainer.classList.add("hide");
+
+  suggestionContainer.classList.add("hide");
+};
+
+// Função para exibir os dados do clima de acordo com a API
+const showWeatherData = async (city) => {
+  hideInformation();
+
+  const data = await getWeatherData(city);
+
+  if (data.cod === "404") {
+    showErrorMessage();
+    return;
+  }}
