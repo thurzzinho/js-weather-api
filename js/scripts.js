@@ -53,7 +53,7 @@ const hideInformation = () => {
   errorMessageContainer.classList.add("hide");
   weatherContainer.classList.add("hide");
 
-  suggestionContainer.classList.add("hide");
+  suggestionButtons.classList.add("hide");
 };
 
 // Função para exibir os dados do clima de acordo com a API
