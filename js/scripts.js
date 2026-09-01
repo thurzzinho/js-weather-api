@@ -2,8 +2,9 @@
 const apiKey = "e994a336092581a7c52f6aa007b924e9";
 const apiCountryURL = "https://flagfeed.com/country/";
 
-const cityInput = document.querySelector("#city-input");
-const searchBtn = document.querySelector("#search");
+const cityInput = document.querySelector("#city-input"); //campo de input
+const searchBtn = document.querySelector("#search"); // ícone/botão de pesquisa
+
 
 // Elementos
 const cityElement = document.querySelector("#city");
@@ -28,7 +29,7 @@ const toggleLoader = () => {
   loader.classList.toggle("hide");
 };
 
-// Função para obter os dados do clima de acordo com a API
+// Função para obter os dados do clima
 const getWeatherData = async (city) => {
   toggleLoader();
 
@@ -51,48 +52,58 @@ const showErrorMessage = () => {
 const hideInformation = () => {
   errorMessageContainer.classList.add("hide");
   weatherContainer.classList.add("hide");
+
   suggestionContainer.classList.add("hide");
 };
 
-// Função para exibir os dados do clima de acordo com a API
+// Função para exibir os dados do clima
 const showWeatherData = async (city) => {
-  if (!city.trim()) return;
-
   hideInformation();
 
   const data = await getWeatherData(city);
 
-  if (data.cod == 404) {
+  if (data.cod === "404") {
     showErrorMessage();
     return;
   }
 
+  // Exibição dos dados do clima de acordo com a API
+
   cityElement.innerText = data.name;
   tempElement.innerText = parseInt(data.main.temp);
   descriptionElement.innerText = data.weather[0].description;
-  weatherIconElement.setAttribute("src", `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`);
+  weatherIconElement.setAttribute( "src", `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`);
   countryElement.setAttribute("src", apiCountryURL + data.sys.country);
   humidityElement.innerText = `${data.main.humidity}%`;
   windElement.innerText = `${data.wind.speed}km/h`;
+
+
 
   weatherContainer.classList.remove("hide");
 };
 
 // Eventos
-searchBtn.addEventListener("click", (e) => {
+searchBtn.addEventListener("click", async (e) => {
   e.preventDefault();
-  showWeatherData(cityInput.value);
+
+  const city = cityInput.value;
+
+  showWeatherData(city);
 });
 
 cityInput.addEventListener("keyup", (e) => {
   if (e.code === "Enter") {
-    showWeatherData(e.target.value);
+    const city = e.target.value;
+
+    showWeatherData(city);
   }
 });
 
 // Sugestões
 suggestionButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
-    showWeatherData(btn.getAttribute("id"));
+    const city = btn.getAttribute("id");
+
+    showWeatherData(city);
   });
 });
