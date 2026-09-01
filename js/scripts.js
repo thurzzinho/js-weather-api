@@ -65,4 +65,20 @@ const showWeatherData = async (city) => {
   if (data.cod === "404") {
     showErrorMessage();
     return;
-  }}
+  }
+
+  // Exibição dos dados do clima de acordo com a API
+
+  cityElement.innerText = data.name;
+  tempElement.innerText = parseInt(data.main.temp);
+  descriptionElement.innerText = data.weather[0].description;
+  weatherIconElement.setAttribute( "src", `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`);
+  countryElement.setAttribute("src", apiCountryURL + data.sys.country);
+  humidityElement.innerText = `${data.main.humidity}%`;
+  windElement.innerText = `${data.wind.speed}km/h`;
+
+
+
+  weatherContainer.classList.remove("hide");
+};
+
