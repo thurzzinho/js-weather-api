@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clima Agora!</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/scripts.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clima Agora!</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,10 +14,9 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
+
   <link rel="stylesheet" href="css/style.css"/>
   <script src="js/scripts.js" defer></script>
-
 </head>
 <body>
   <div class="container">
@@ -27,7 +24,7 @@
       <h3>Confira o clima de uma cidade:</h3>
       <div class="form-input-container">
         <input type="text" placeholder="Digite o nome da cidade" id="city-input"/>
-      <button id="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button id="search"><i class="fa-solid fa-magnifying-glass"></i></button>
       </div>
     </div>
 
@@ -41,7 +38,7 @@
       </div>
       <div id="details-container">
         <p id="humidity">
-          <i class="fa-solid fa-droplet"></i> 
+          <i class="fa-solid fa-droplet"></i>
           <span></span>
         </p>
         <p id="wind">
@@ -56,12 +53,13 @@
     <div id="loader" class="hide">
       <i class="fa-solid fa-spinner"></i>
     </div>
+
     <div id="suggestions">
       <button id="viena">Viena</button>
       <button id="copenhague">Copenhague</button>
       <button id="zurique">Zurique</button>
       <button id="vancouver">Vancouver</button>
+    </div>
   </div>
-
 </body>
 </html>
