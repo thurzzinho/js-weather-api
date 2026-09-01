@@ -137,49 +137,6 @@
     opacity: 1;
   }
 
-
-  /* =========================================
-   Media Queries (Tablets e Celulares)
-   ========================================= */
-
-/* Tablets */
-@media (max-width: 768px) {
-    .container {
-      width: 80%;
-      padding: 1.5rem;
-    }
-  }
-  
-  /* Celulares */
-  @media (max-width: 480px){
-    .container {
-      width: 90%;
-      padding: 1.2rem;
-    }
-  
-    /* Ajusta o formulário para ficar um embaixo do outro se a tela for muito estreita */
-    .form-input-container {
-      flex-direction: column;
-    }
-  
-    .form button {
-      margin-left: 0;
-      margin-top: 0.6rem;
-      width: 100%;
-    }
-  
-    /* Ajusta os detalhes do clima (umidade e vento) para telas pequenas */
-    #details-container {
-      flex-direction: column;
-    }
-  
-    #details-container #humidity {
-      border-right: none;
-      border-bottom: 1.5px solid #fff;
-      margin: 0.4rem 0;
-      padding: 0.4rem 0;
-    }}
-
     /* =========================================
    Media Queries (Tablets e Celulares)
    ========================================= */
