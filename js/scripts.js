@@ -82,3 +82,28 @@ const showWeatherData = async (city) => {
   weatherContainer.classList.remove("hide");
 };
 
+// Eventos
+searchBtn.addEventListener("click", async (e) => {
+  e.preventDefault();
+
+  const city = cityInput.value;
+
+  showWeatherData(city);
+});
+
+cityInput.addEventListener("keyup", (e) => {
+  if (e.code === "Enter") {
+    const city = e.target.value;
+
+    showWeatherData(city);
+  }
+});
+
+// Sugestões
+suggestionButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const city = btn.getAttribute("id");
+
+    showWeatherData(city);
+  });
+});
